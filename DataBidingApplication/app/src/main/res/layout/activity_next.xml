@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+        <variable
+            name="profile"
+            type="com.example.databidingapplication.Profile" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/full_name_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{profile.fullName}"
+        app:layout_constraintBottom_toTopOf="@id/email_id_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email_id_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:email="@{profile.emailId}"
+        app:layout_constraintBottom_toTopOf="@id/contact_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/full_name_display" />
+
+    <TextView
+        android:id="@+id/contact_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{profile.contactNumber.substring(6, 10)}"
+        app:layout_constraintBottom_toTopOf="@id/age_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_id_display" />
+
+    <TextView
+        android:id="@+id/age_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{profile.age}"
+        android:textColor="@{Integer.parseInt(profile.age) &lt; 24 ? @color/red : @color/blue}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_display" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
