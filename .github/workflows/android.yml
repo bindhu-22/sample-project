@@ -26,5 +26,7 @@ jobs:
       run: ls
     - name: setup gradle
       uses: gradle/gradle-build-action@v2
+    - name: grant permission
+      run: git update-index --chmod=+x gradlew
     - name: Build with Gradle
       run: ./gradlew build
