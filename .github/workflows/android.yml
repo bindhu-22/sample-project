@@ -19,5 +19,7 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
 
+      - name: Grant permssions
+        run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
