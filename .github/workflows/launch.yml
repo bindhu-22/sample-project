@@ -37,6 +37,8 @@ jobs:
     #- name: Install libpulse
      # run: sudo apt -y install libpulse-dev
 
+    - run: egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+
     - run: sudo apt-get update
     - run: sudo apt install qemu-kvm
 
